@@ -6,4 +6,6 @@ to execute the operation, perform the following processes:
 1. open a bash terminal in a folder containing this repositorz (locally or via ssh)
 2. run chmod +x retrieve_addresses.sh to allow execution of customs bash files
 3. execute ./retrieve_addresses.sh that will download weekly list of actives addresses and decode into a local .txt file
+    1. ipv6_retrieval will be executed downloading and storing in the working directory ipv6 hitlist
+    2. ipv6_aliases_removal will iterate the hitlist and send 16 packets to pseudo-random addresses within IPv6 prefix, using TCP/80 and ICMPv6 enforcing traversal of a subprefix with different nybbles. SUDO permissions required for Linux kernel
 4. work in progress
