@@ -9,6 +9,8 @@ Repository to check existence of IPv6 address and check validity avoiding aliase
 * ...
 
 # Instructions
+
+## IPv6 retrieval and dealiasing
 to execute the operation, perform the following processes:
 1. open a bash terminal in a folder containing this repository (locally or via ssh)
 2. run ```chmod +x retrieve_addresses.sh``` to allow execution of customs bash files
@@ -17,7 +19,7 @@ to execute the operation, perform the following processes:
     2. ipv6_aliases_removal will iterate the hitlist and send 16 packets to pseudo-random addresses within IPv6 prefix, using TCP/80 and ICMPv6 enforcing traversal of a subprefix with different nybbles. SUDO permissions required for Linux kernel
 4. ...
 
-# Zmap Scanner
+## Zmap Scanner set up and configuration
 to install ZMapv6, do:
 1. make sure to install all the dependencies of ZMap  
    On Debian-based systems (including Ubuntu), run:  
@@ -49,3 +51,4 @@ to scan a list of IPv6 addresses with zmap:
    note: gateway MAC maybe not needed.  
 4. run the bash script
    ```bash zmap_scan_once.sh```
+6. configure Cronjob for one week
