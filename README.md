@@ -51,4 +51,5 @@ to scan a list of IPv6 addresses with zmap:
    note: gateway MAC maybe not needed.  
 4. run the bash script
    ```bash zmap_scan_once.sh```
-6. configure Cronjob for one week
+6. configure Cronjob for one week  
+note: **DO NOT** run with proxy or vpn on, make sure to kill them ahead.  
