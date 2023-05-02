@@ -3,14 +3,14 @@ Repository to check existence of IPv6 address and check validity avoiding aliase
 
 # Prerequisites
 ## python environment
-@DressPD
+@DressPD 
 * local installation of python 3.8+ and Linux terminal (bash, zsh also via WSL) with valid connetivity and SUDO option available
 * install via packet manager (pip or conda) the following python packages:
     * for hitlist retrieval: os, requests, lzma
     * for de-aliasing: scapy, random, multiprocessing
 * ...
 ## Zmap Scanner set up and configuration
-@zhang12574
+@zhang12574  
 to install ZMapv6, do:
 1. make sure to install all the dependencies of ZMap  
    On Debian-based systems (including Ubuntu), run:  
@@ -47,7 +47,7 @@ note: **DO NOT** run with proxy or vpn on, make sure to kill them ahead.
 
 # Instructions
 ## IPv6 retrieval and aliasing
-@DressPD
+@DressPD  
 to execute the operation, perform the following processes:
 1. open a bash terminal in a folder containing this repository (locally or via ssh)
 2. run ```chmod +x retrieve_addresses.sh``` to allow execution of customs bash files
@@ -56,22 +56,22 @@ to execute the operation, perform the following processes:
     2. ipv6_identify_prefixes.py will iterate the hitlist, remove aliased addresses in /64 prefix and generate 1 pseudo-random address for each 4-bit /68 subprefix storing the output in a list and file called aliased_ipv6_addresses.txt
 
 ## Scan IPv6 addresses and de-aliasing
-@zhang12574
+@zhang12574  
 1. the file aliased_ipv6_addresses.txt contains a list structured of 1 original address and 16 aliases every 17 lines. Zmpav6 will send 16 packets to aliases addresses (pseudo-random addresses within generated addresses in IPv6 prefix) using TCP/80 and ICMPv6 enforcing traversal of a subprefix with different nybbles. SUDO permissions required for Linux kernel
 2. responsive addresses are counted. If we obtain responses from all 16, we label the prefix as aliased and remove it. If not, we write the original address (line 1) in a file called dealiased_ipv6_addresses.txt
 3. further instructions...
 
 ## Generate new IPv6 Addresses
-@Takaya
+@Takaya  
 1. use dealiased_ipv6_addresses.txt as input to generate random addresses with Entropy/IP, 6Gen, or 6Tree
 2. store (or add) original and generated addresses in a different file called generated_ipv6_addresses.txt
 
 ## Scan de-aliased and generated IPv6 addresses for one week
-@zhang12574
+@zhang12574  
 1. set up daily scanning using Cronjob or equivalent methods
 2. save results in a folder measuring responsiveness
 
 ## Daily active IPv6 addresses report and results
-@Takaya
+@Takaya 
 1. plot results and analysis (using python script or BI tool)
 2. produce instructions and interpretation of results
