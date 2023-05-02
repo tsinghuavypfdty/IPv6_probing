@@ -1,3 +1,3 @@
 #!/bin/bash
-python ipv6_retrieval.py
-sudo python ipv6_aliases_removal.py
+python ./ipv6_retrieval/ipv6_retrieval.py
+python ./ipv6_retrieval/ipv6_identify_prefixes.py
